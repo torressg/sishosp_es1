@@ -1,0 +1,307 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+
+body {
+    background-color: #6FC7DA;
+    margin:0;
+    font-family: 'Inter';
+    font-weight: 400;
+}
+/*Menu de Navegação*/
+#menu {
+    font-family: 'Inter';
+    font-weight: 700;
+	background: #58A8B9;
+	color: #FFF;
+	height: 45px;
+	padding-left: 18px;
+	border-radius: 0px;
+}
+#menu ul, #menu li {
+	margin: 0 auto;
+	padding: 0;
+	list-style: none
+}
+#menu ul {
+	width: 100%;
+}
+#menu li {
+	float: left;
+	display: inline;
+	position: relative;
+}
+#menu a {
+	display: block;
+	line-height: 45px;
+	padding: 0 14px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+#menu a.dropdown-arrow:after {
+	content: "\25BE";
+	margin-left: 5px;
+}
+#menu li a:hover {
+	color: #0099CC;
+	background: #FFFFFF;
+}
+#menu input {
+	display: none;
+	margin: 0;
+	padding: 0;
+	height: 45px;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer
+}
+#menu label {
+	display: none;
+	line-height: 45px;
+	text-align: center;
+	position: absolute;
+	left: 35px
+}
+#menu label:before {
+	font-size: 1.6em;
+	content: "\2261"; 
+	margin-left: 20px;
+}
+#menu ul.sub-menus{
+    font-family: 'Inter';
+    font-weight: 400;
+	height: auto;
+	overflow: hidden;
+	width: 170px;
+	background: #58A8B9;
+	position: absolute;
+	z-index: 99;
+	display: none;
+}
+#menu ul.sub-menus li {
+	display: block;
+	width: 100%;
+}
+#menu ul.sub-menus a {
+	color: #FFFFFF;
+	font-size: 16px;
+}
+#menu li:hover ul.sub-menus {
+	display: block
+}
+#menu ul.sub-menus a:hover{
+	background: #FFFFFF;
+	color: #0099CC;
+}
+@media screen and (max-width: 800px){
+	#menu {position:relative}
+	#menu ul {background:#111;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none}
+	#menu ul.sub-menus {width:100%;position:static;}
+	#menu ul.sub-menus a {padding-left:30px;}
+	#menu li {display:block;float:none;width:auto;}
+	#menu input, #menu label {position:absolute;top:0;left:0;display:block}
+	#menu input {z-index:4}
+	#menu input:checked + label {color:white}
+	#menu input:checked + label:before {content:"\00d7"}
+	#menu input:checked ~ ul {display:block}
+}
+/*Bem Vindo*/
+#bemvindo {
+    font-size: 65px;
+    font-family: 'Exo', sans-serif;
+    text-align: center;
+    margin: 0px;
+    margin-top: 120px;
+    margin-bottom: 0px;
+    color: white;
+    text-shadow: 0px 4px 0px rgba(137, 137, 137, 0.5);
+    
+}
+#sistema {
+    font-size: 65px;
+    font-family: 'Exo', Black;
+    text-align: center;
+    margin-top: 1px;
+    color: white;
+    text-shadow: 0px 4px 0px rgba(255, 0, 0, 0.696);
+    
+}
+#ao {
+    font-size: 36px;
+}
+/*Formulário*/
+h1{
+    text-align: center;
+    font-family: 'Inter';
+    font-weight: 700;
+    color: white;
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.137);
+}
+label{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 13px;
+}
+submit {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 13px;
+    justify-self: center;
+}
+    /*Grid*/
+#textoselecao{
+    display: flex;
+    justify-content: center;
+}
+#selecao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.linha{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    background-color: white;
+    padding: 1%;
+    border-radius: 20px;
+    box-shadow: 0px 3px 17px rgba(0, 0, 0, 0.300);
+} 
+    /*Inputs*/
+
+#nome{
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 10px;
+    width: 220px;  
+}
+#sexo{
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 10px;
+    width: 135px;
+}
+#data{
+    border: 0px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    width: 150px;
+}
+#sangue{
+    border: 0px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    width: 150px;
+}
+#tel{
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 12px;
+    width: 150px;
+}
+#end{
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 12px;
+    width: 220px;
+}
+#crm{
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 12px;
+    width: 100px;
+}
+#area{
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 12px;
+    width: 150px;
+}
+#enviar{
+    align-self: center;
+    text-align: center;
+    width: 120px;
+    margin-top: 4%;
+    margin-right: 2%;
+    border: 0;
+    border-radius: 9px;
+    background-color: #D9D9D9;
+    cursor: pointer;
+}
+#enviar:active{
+    background-color: #a7a7a7;
+}
+    /*Labels*/
+#sexoL{
+    margin-top: 7px;
+}
+#dataL{
+    margin-top: 7px;
+}
+#sangueL{
+    margin-top: 7px;
+}
+#telL{
+    margin-top: 7px;
+}
+#endL{
+    margin-top: 7px;
+}
+#crmL{
+    margin-top: 7px;
+}
+#areaL{
+    margin-top: 7px;
+}
+</style>
+
+<h1>Cadastro de Médico</h1>
+    <form id= "pacienteF" class="formulario" action="/sucesso/medico" method="POST">
+        <div class="linha">
+            <label id="nomeL" for="nome">Nome Completo</label>    
+            <input id="nome" name="nome"
+            type="text" required>
+            <label id="sexoL" for="sexo">Sexo</label>
+            <select id="sexo" required name="sexo">
+                <option value="-----"></option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+            </select>
+            <label id="sangueL" for="data">Tipo Sanguíneo</label>
+            <select id="sangue" required name="tpsangue">
+                <option value="-----"></option>
+                <option value="A+">A+</option>
+                <option value="B+">B+</option>
+                <option value="AB+">AB+</option>
+                <option value="O+">O+</option>
+                <option value="A-">A-</option>
+                <option value="B-">B-</option>
+                <option value="AB-">AB-</option>
+                <option value="O-">O-</option>
+            </select>
+            <label id="dataL" for="data">Data de Nascimento</label>
+            <input id="data"type="date" required name="datanasc">
+            <label id="telL" for="tel">Telefone</label>
+            <input id="tel" type="tel" required name="telefone">
+            <label id="endL" for="end" aria-required="true">Endereço</label>
+            <input id="end" name="endereco">
+            <label id= "crmL" for="CRM">CRM</label>
+            <input id="crm" type="number" name="crm">
+            <label id="areaL" for="area">Área de Atuação</label>
+            <select id="area"  name="atuacao">
+                <option value="0"></option>
+                <option value="Clínico Geral">Clínico Geral</option>
+                <option value="Ortopedia">Ortopedia</option>
+                <option value="Pediatia">Pediatia</option>
+                <option value="Cardiologia">Cardiologia</option>
+            </select>
+            <button type="submit" id="enviar">Enviar</button>
+        
+        </div>
+    </form>

@@ -1,0 +1,182 @@
+<style>
+    h1 {
+        text-align: center;
+        font-family: 'Inter';
+        font-weight: 700;
+        color: white;
+        text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.137);
+    }
+
+    #opcao,
+    #tabelas {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    select {
+        border: 0;
+        padding: 0.5%;
+        font-size: 80%;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.151);
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        margin-top: 3%;
+        display: none
+    }
+
+    tr {
+        background-color: #fff;
+    }
+
+    tr:nth-child(even) {
+        background-color: #e9e9e9;
+    }
+
+    td,
+    th {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #545E75;
+        color: white;
+    }
+
+    #tablemedico,
+    #tablepaciente,
+    #tableatend {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+<h1>O que você deseja consultar?</h1>
+<div id="tabelas">
+    <select id="opcao">
+        <option value="">Escolha aqui</option>
+        <option value="tabela1">Atendimento</option>
+        <option value="tabela2">Médicos</option>
+        <option value="tabela3">Pacientes</option>
+    </select>
+</div>
+
+<div id="tableatend">
+
+    <table class="tabela1" name="atendimentos">
+        <tr>
+            <th>Id.</th>
+            <th>Id. Paciente</th>
+            <th>Id. Médico</th>
+            <th>Data da Entrada</th>
+            <th>EDITAR</th>
+            <th>DELETAR</th>
+        </tr>
+
+        {{#each atendimentos}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.paciente}}</td>
+            <td>{{this.medico}}</td>
+            <td>{{this.dataatend}}</td>
+            <td>
+                <form action="/edit/atendimento/{{id}}" method="get">
+                    <button type="submit" class="action-edit">
+                        <a class="material-icons">Editar</a>
+                    </button>
+
+                </form>
+            </td>
+            <td><a href="/deletaratendimento/{{id}}"><button>Deletar</button></a></td>
+
+        </tr>
+        {{/each }}
+
+    </table>
+
+</div>
+
+<div id="tablemedico">
+    <table class="tabela2" name="medicos">
+        <tr>
+            <th>Id.</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>CRM</th>
+            <th>EDITAR</th>
+            <th>DELETAR</th>
+        </tr>
+
+        {{#each medico}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.nome}}</td>
+            <td>{{this.telefone}}</td>
+            <td>{{this.codigomedico}}</td>
+            <td>
+                <form action="/edit/medico/{{id}}" method="get">
+                    <button type="submit" class="action-edit">
+                        <a class="material-icons">Editar</a>
+                    </button>
+
+                </form>
+            </td>
+            <td><a href="/deletarmedico/{{id}}"><button>Deletar</button></a></td>
+
+
+        </tr>
+        {{/each }}
+
+    </table>
+</div>
+
+<div id="tablepaciente">
+    <table class="tabela3" name="pacientes">
+        <tr>
+            <th>Id.</th>
+            <th>Nome</th>
+            <th>Sexo</th>
+            <th>Data Nascimento</th>
+            <th>EDITAR</th>
+            <th>DELETAR</th>
+        </tr>
+
+        {{#each pacientes}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.nome}}</td>
+            <td>{{this.sexo}}</td>
+            <td>{{this.datanasc}}</td>
+            <td>
+                <form action="/edit/paciente/{{id}}" method="get">
+                    <button type="submit" class="action-edit">
+                        <a class="material-icons">Editar</a>
+                    </button>
+
+                </form>
+            </td>
+            <td><a href="/deletarpaciente/{{id}}"><button>Deletar</button></a></td>
+
+        </tr>
+        {{/each }}
+
+    </table>
+</div>
+
+
+<script>
+    const select = document.getElementById('tabelas');
+    const tables = document.querySelectorAll('table');
+
+    select.addEventListener('change', (event) => {
+        const selectedTable = document.querySelector(`.${event.target.value}`);
+
+        tables.forEach(table => table.style.display = 'none');
+
+        selectedTable.style.display = 'table';
+    });
+</script>

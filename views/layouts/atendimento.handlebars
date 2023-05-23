@@ -1,0 +1,194 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+
+/*Formulário*/
+h1{
+    text-align: center;
+    font-family: 'Inter';
+    font-weight: 700;
+    color: white;
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.137);
+}
+label{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 13px;
+}
+submit {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 13px;
+    justify-self: center;
+}
+    /*Grid*/
+#textoselecao{
+    display: flex;
+    justify-content: center;
+}
+#selecao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.linha{
+    display: grid;
+    grid-template-columns: repeat(4,2fr);
+    max-width: 481px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    background-color: white;
+    padding: 1%;
+    border-radius: 20px;
+    box-shadow: 0px 3px 17px rgba(0, 0, 0, 0.300);
+} 
+    /*Inputs*/
+
+#nome{
+    grid-column-start: 1;
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 10px;
+    width: 220px;  
+}
+#sexo{
+    grid-column-start: 2;
+    background-color: #D9D9D9;
+    grid-row-start: 2;
+    border: 0px;
+    border-radius: 10px;
+    width: 135px;
+    margin-left: 7%;
+}
+#sangue{
+    border: 0px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    width: 150px;
+}
+#medicos{
+    grid-column-start: 3;
+    grid-row-start: 2;
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 10px;
+    width: 160px;
+}
+#pacientes{
+    grid-column-start: 1;
+    grid-row-start: 2;
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 10px;
+    width: 160px;
+}
+#entrada{
+    grid-column-start: 2;
+    grid-row-start: 2;
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 10px;
+    width: 160px;
+}
+#quadro{
+    resize:none;
+    margin-top: 2%;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 6;
+    background-color: #D9D9D9;
+    border: 0px;
+    border-radius: 12px;
+}
+#enviar{
+    grid-column-start: 3;
+    grid-row-start: 6;
+    margin-top: 4%;
+    border: 0;
+    border-radius: 9px;
+    background-color: #D9D9D9;
+    cursor: pointer;
+}
+#enviar:active{
+    background-color: #a7a7a7;
+}
+    /*Labels*/
+
+#sexoL{
+    margin-left: 11%;
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+#sangueL{
+    margin-left: 5px;
+    grid-column-start: 4;
+    grid-row-start: 1;
+}
+#medicosL{
+    margin-left: 5px;
+    grid-column-start: 3;
+    grid-row-start:1;
+    margin-top: 1.5%;
+}
+#pacientesL{
+    margin-left: 5px;
+    grid-column-start: 2;
+    grid-row-start:3;
+    margin-top: 1.5%;
+}
+#entradaL{
+    margin-left: 5px;
+    grid-column-start: 2;
+    grid-row-start:1;
+    margin-top: 1.5%;
+}
+#nomeL{
+    margin-left: 5px;
+    grid-column-start: 1;
+    grid-row-start:1;
+    margin-top: 1.5%;
+}
+#enviar {
+    align-self: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 4%;
+    margin-right: 2%;
+    border: 0;
+    border-radius: 9px;
+    background-color: #D9D9D9;
+    cursor: pointer;
+}
+</style>
+<h1>Atendimento</h1>
+    <form id= "atendimentoF" class="formulario" method="POST" action="/sucesso/atendimento">
+        <div class="linha">
+            <label for="pacientes" id="nomeL">Nome do Paciente</label>
+            <select id="pacientes" name="paciente"required>
+                <option value="0"></option>
+                {{#each pacientes}}
+                <option value="{{this.id}}">{{this.nome}}</option>
+                {{/each}}
+            </select>
+
+            <label id="entradaL" for="entrada">Data e hora da entrada</label>
+            <input id="entrada" type="datetime-local" name="dataatend"required>
+
+            <label id="medicosL" for="medicos">Médico atendente</label>
+            <select id="medicos" name="medico"required>
+                <option value="0"></option>
+                {{#each medico}}
+                <option value="{{this.id}}">{{this.nome}}</option>
+                {{/each}}
+            </select>
+            
+            
+            <textarea name="ocorrido" id="quadro"name="descreva" type="text" placeholder=" Descreva o ocorrido" required rows="10" cols="71"></textarea>
+            <button type="submit" id="enviar">Enviar</button>
+        </div>
+
+    </form>
